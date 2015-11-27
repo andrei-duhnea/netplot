@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style>
+          body {
+            padding: 60px 0px;
+          }
+    </style>
+</head>
+<body>
+    <div class="container well">
+        <h1>Network traffic plotter</h1>
+        <hr />
+        % if defined('alerts'):
+          % for alert in alerts:
+            <div class="row">
+              <div class="alert alert-{{ alert['type'] }}" role="alert">{{ alert['text'] }}</div>
+            </div>
+          % end
+        %end
+        <form class="form-horizontal" action="/upload" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+              <label for="csv-file-select" class="col-sm-3 control-label">bmw-ng csv file: </label>
+              <div class="col-sm-9">
+                  <input class="form-control" type="file" id="csv-file-select" name="csv-upload" />
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="sampling-rate" class="col-sm-3 control-label">Sampling rate: </label>
+              <div class="col-sm-9">
+                  <input class="form-control" type="text" id="sampling-rate-text" name="sampling-rate" value="10ms" />
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="dpi" class="col-sm-3 control-label">DPI: </label>
+              <div class="col-sm-9">
+                  <input class="form-control" type="text" id="dpi-text" name="dpi" value="100" />
+              </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+              <input class="btn btn-primary" type="submit" value="Submit" />
+            </div>
+          </div>
+        </form>
+    </div>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
