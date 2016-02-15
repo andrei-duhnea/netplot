@@ -65,7 +65,7 @@ def plot(csv_file, sampling_rate='10ms'):
     ax2.yaxis.set_major_formatter(FuncFormatter(smart_bits))
     ax2.plot(volume_data, 'b')
 
-    fig.text(0.97, 0.01, 'Thales Signaling Solutions',
+    fig.text(0.97, 0.01, '<company name here>',
           fontsize=10, color='gray',
           ha='right', va='bottom', alpha=0.5)
 
